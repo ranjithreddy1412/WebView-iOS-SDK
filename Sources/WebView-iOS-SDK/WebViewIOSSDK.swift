@@ -18,9 +18,16 @@ public class WebViewIOSSDK {
     
     /// Navigate to WebView or SafariView
     public func navigateToWebView(using url: URL, openInSafari: Bool, completion: @escaping (ViewType) -> Void) {
+        guard UIApplication.shared.canOpenURL(url) else {
+            print("Error: Cannot open URL \(url.absoluteString)")
+            return
+        }
+        
         if openInSafari {
+            print("Navigating to Safari with URL: \(url.absoluteString)")
             completion(.safari(url))
         } else {
+            print("Navigating to WebView with URL: \(url.absoluteString)")
             completion(.web(url))
         }
     }

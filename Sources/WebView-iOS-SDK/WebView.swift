@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-protocol WebViewMessageHandler {
+public protocol WebViewMessageHandler {
     func onMessageReceived(_ message: String)
 }
 
@@ -16,7 +16,7 @@ public struct WebView: UIViewRepresentable {
     let url: URL
     var messageHandler: WebViewMessageHandler
     
-    init(url: URL, messageHandler: WebViewMessageHandler) {
+    public init(url: URL, messageHandler: WebViewMessageHandler) {
         self.url = url
         self.messageHandler = messageHandler
     }
@@ -24,7 +24,7 @@ public struct WebView: UIViewRepresentable {
     public class Coordinator: NSObject, WKScriptMessageHandler {
         var parent: WebView
         
-        init(parent: WebView) {
+        public init(parent: WebView) {
             self.parent = parent
         }
         

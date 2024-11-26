@@ -71,7 +71,11 @@ public struct WebView: UIViewRepresentable {
         
         // Set up preferences for JavaScript
         let preferences = WKWebpagePreferences()
-        preferences.allowsContentJavaScript = true // Enable JavaScript for this navigation
+        if #available(iOS 14.0, *) {
+            preferences.allowsContentJavaScript = true
+        } else {
+            // Fallback on earlier versions
+        } // Enable JavaScript for this navigation
         config.defaultWebpagePreferences = preferences
         
         // Set up message handler

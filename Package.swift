@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "WebView-iOS-SDK",
     platforms: [
-        .iOS(.v14) // Specify minimum platform version
+        .iOS(.v13) // Specify minimum platform version
     ],
     products: [
         // Define the library product
